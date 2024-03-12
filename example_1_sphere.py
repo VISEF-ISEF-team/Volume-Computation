@@ -13,7 +13,11 @@ x, y, z = np.meshgrid(x, y, z)
 level = 35
 volume = np.sqrt(x**2 + y**2 + z**2).astype(np.float64)
 mask = np.asarray(volume >= level, dtype="bool").astype(int)
+<<<<<<< HEAD
+# cube = np.array([[[0.0] * (500 - 1) for _ in range(500 - 1)] for _ in range(500 - 1)]).astype(np.float64)  --> only for applied in software
+=======
 # cube = np.array([[[0.0] * (500 - 1) for _ in range(500 - 1)] for _ in range(500 - 1)]).astype(np.float32)  --> only for applied in software
+>>>>>>> 615f458a3ee0d13f7e79dfa49325a2a60e2c5ea0
 
 start_time = time.time()
 verts, faces, fenwick, sum = _bitree_marching_cubes_cy.MarchingCubesLorensen(volume, mask, level)
