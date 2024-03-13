@@ -5,22 +5,14 @@ import _bitree_marching_cubes_cy
 import time
 
 # Load volumetric data
-<<<<<<< HEAD
 path = "D:\Documents\GitHub\VascuIAR\DeepLearning\data\VnRawData\VHSCDD_sep_labels\VHSCDD_020_label\ct_020_label_2.nii.gz"  # Paste your path to .nii.gz or .nii file
-=======
-path = "D:\Documents\GitHub\VascuIAR\DeepLearning\data\VnRawData\VHSCDD_sep_labels\VHSCDD_020_label\ct_020_label_10.nii.gz"  # Paste your path to .nii.gz or .nii file
->>>>>>> 615f458a3ee0d13f7e79dfa49325a2a60e2c5ea0
 raw = sitk.ReadImage(path, sitk.sitkFloat64)
 volume = sitk.GetArrayFromImage(raw)
 
 # Or if you have the volumetric data (3D array), skip previous step 
 level = 0.5
 mask = np.asarray(volume >= level, dtype="bool").astype(int)
-<<<<<<< HEAD
 # cube = np.array([[[0.0] * (volume.shape[2] - 1) for _ in range(volume.shape[1] - 1)] for _ in range(volume.shape[0] - 1)]).astype(np.float64) --> only for applied in software
-=======
-# cube = np.array([[[0.0] * (volume.shape[2] - 1) for _ in range(volume.shape[1] - 1)] for _ in range(volume.shape[0] - 1)]).astype(np.float32) --> only for applied in software
->>>>>>> 615f458a3ee0d13f7e79dfa49325a2a60e2c5ea0
 
 start_time = time.time()
 verts, faces, fenwick, sum = _bitree_marching_cubes_cy.MarchingCubesLorensen(volume, mask, level)
